@@ -4,22 +4,162 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Weather App</title>
-    <a
-      href="/Users/ckolar/Desktop/SheCodes/Plus/vanilla-weather-app/src/style.css"
-    ></a>
-    <link rel="stylesheet" href="src/style.css" />
     <link
       rel="stylesheet"
-      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+      integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
       crossorigin="anonymous"
     />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Yantramanav:wght@100;300;400;500;700;900&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script
+      src="https://kit.fontawesome.com/278cc29812.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="src/style.css" class="css" />
   </head>
   <body>
     <div class="container">
-      <h1>Hello World!</h1>
-      <a href="" class="btn btn-primary">Click Me</a>
+      <div>
+        class="weather-app">
+        <div class="card capsule">
+          <div class="card-body">
+            <div class="search-city-current-location">
+              <form id="search-city">
+                <input
+                  type="text"
+                  placeholder="Search City"
+                  autofocus="on"
+                  autocomplete="off"
+                  id="city-input"
+                />
+                <input type="submit" value="🔎" id="search-button" />
+                <br />
+              </form>
+              <button class="current-location-button">
+                <i class="fas fa-location-arrow"></i> Current Location
+              </button>
+            </div>
+            <br />
+            <div class="row current-conditions">
+              <div class="col-3">
+                <h1>
+                  <i class="fas fa-sun weather-icon-today"> </i>
+                  <div class="condition-description">Sunny</div>
+                  <span class="temp-high-low-today">
+                    <span class="high-temp-today">30</span>º|
+                    <span class="low-temp-today">25</span>º
+                  </span>
+                </h1>
+              </div>
+              <div class="col-4">
+                <h2>
+                  <span class="current-temperature"> 29</span>ºC
+                  <div id="city">Seville, ES</div>
+                </h2>
+                <h3>
+                  Thursday
+                  <br />
+                  11:46
+                </h3>
+              </div>
+              <div class="col-5 weather-extras">
+                <p>
+                  Humidity: <span class="humidity">46</span>%<br />
+                  Wind: <span class="wind">6</span> km/h
+                </p>
+              </div>
+            </div>
+            <div class="card week-ahead">
+              <div class="card-body">
+                <div class="row">
+                  <div class="col day">
+                    Sat
+                    <div class="weather-icon-future">
+                      <i class="fas fa-sun"></i>
+                    </div>
+                    <div class="temp-high-low-future">
+                      38º | 21º
+                    </div>
+                  </div>
+                  <div class="col day">
+                    Sun
+                    <div class="weather-icon-future">
+                      <i class="fas fa-sun"></i>
+                    </div>
+                    <div class="temp-high-low-future">
+                      39º | 23º
+                    </div>
+                  </div>
+                  <div class="col day">
+                    Mon
+                    <div class="weather-icon-future">
+                      <i class="fas fa-sun"></i>
+                    </div>
+                    <div class="temp-high-low-future">
+                      37º | 24º
+                    </div>
+                  </div>
+                  <div class="col day">
+                    Tues
+                    <div class="weather-icon-future">
+                      <i class="fas fa-sun"></i>
+                    </div>
+                    <div class="temp-high-low-future">
+                      40º | 20º
+                    </div>
+                  </div>
+                  <div class="col day">
+                    Wed
+                    <div class="weather-icon-future">
+                      <i class="fas fa-sun"></i>
+                    </div>
+                    <div class="temp-high-low-future">
+                      39º | 22º
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="scale">
+            <div
+              class="btn-group"
+              role="group"
+              aria-label="Button group with nested dropdown"
+            >
+              <button
+                type="button"
+                class="btn btn-outline-secondary"
+                id="button-c"
+              >
+                ºC
+              </button>
+              <button
+                type="button"
+                class="btn btn-outline-secondary"
+                id="button-f"
+              >
+                ºF
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
+    <small>
+      <a href="https://github.com/CathKolar/Weather-app-project" target="blank"
+        ><span class="link"> Open-source code </span></a
+      >
+      by
+      <a href="https://www.linkedin.com/in/catherinekolar/" target="blank"
+        ><span class="link"> Catherine Kolar </span></a
+      >
+    </small>
+
     <script src="src/app.js"></script>
   </body>
 </html>
