@@ -1,0 +1,121 @@
+body {
+  margin: 60px;
+  font-family: "Yantramanav", sans-serif;
+}
+
+div.card.capsule {
+  color: #1b1c25;
+  margin: 0 auto;
+  min-width: 540px;
+  max-width: 700px;
+  background-image: linear-gradient(
+      to bottom,
+      #d5dee7 0%,
+      #e8ebf2 50%,
+      #e2e7ed 100%
+    ),
+    linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0.02) 50%,
+      rgba(255, 255, 255, 0.02) 61%,
+      rgba(0, 0, 0, 0.02) 73%
+    ),
+    linear-gradient(33deg, rgba(255, 255, 255, 0.2) 0%, rgba(0, 0, 0, 0.2) 100%);
+  background-blend-mode: normal, color-burn;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
+}
+h1 {
+  line-height: 20px;
+}
+
+h2,
+h3 {
+  margin-top: 25px;
+}
+h2 {
+  font-size: 50;
+  font-weight: 400;
+  line-height: 35px;
+}
+h3 {
+  font-size: 25px;
+  font-weight: 300;
+  line-height: 35px;
+}
+p {
+  margin-top: 85px;
+}
+small {
+  font-size: 15px;
+  color: rgb(33, 33, 33);
+  display: block;
+  text-align: center;
+  margin-top: 10px;
+}
+.weather-app-wrapper {
+  max-width: 600px;
+  margin: 30px auto;
+}
+
+.search-city-current-location {
+  float: right;
+}
+.current-location {
+  background: transparent;
+  color: #027bfe;
+  border-style: none;
+}
+.fa-location-arrow {
+  color: #027bfe;
+}
+.current-conditions {
+  margin: 60px 5px;
+  text-align: center;
+}
+.weather-icon-today {
+  margin-bottom: 25px;
+  color: #fbc02d;
+  font-size: 125px;
+
+  float: left;
+}
+.condition-description {
+  font-size: 30px;
+  font-weight: 400;
+}
+.temp-high-low-today {
+  font-size: 20px;
+  font-weight: 400;
+}
+.week-ahead {
+  background: linear-gradient(to bottom, #d5dee7 0%, #e8ebf2 50%, #e2e7ed 100%),
+    linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0.02) 50%,
+      rgba(255, 255, 255, 0.02) 61%,
+      rgba(0, 0, 0, 0.02) 73%
+    ),
+    linear-gradient(33deg, rgba(255, 255, 255, 0.2) 0%, rgba(0, 0, 0, 0.2) 100%);
+  background-blend-mode: normal, color-burn;
+  text-align: center;
+
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
+}
+.day {
+  font-weight: 600;
+  text-align: center;
+}
+.weather-icon-future {
+  font-size: 35px;
+
+  color: #fbc02d;
+}
+.temp-high-low-future {
+  font-weight: normal;
+}
+
+.btn-group {
+  float: right;
+  margin: 10px 20px;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
+}
