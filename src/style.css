@@ -60,7 +60,7 @@ small {
 .search-city-current-location {
   float: right;
 }
-.current-location {
+.current-location-button {
   background: transparent;
   color: #027bfe;
   border-style: none;
@@ -80,8 +80,11 @@ small {
   float: left;
 }
 .condition-description {
-  font-size: 30px;
+  font-size: 28px;
   font-weight: 400;
+}
+.condition-description:first-letter {
+  text-transform: capitalize;
 }
 .temp-high-low-today {
   font-size: 20px;
