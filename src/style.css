@@ -86,6 +86,9 @@ small {
 .condition-description:first-letter {
   text-transform: capitalize;
 }
+.last-update {
+  font-size: 15px;
+}
 .temp-high-low-today {
   font-size: 20px;
   font-weight: 400;
