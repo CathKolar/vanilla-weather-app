@@ -63,6 +63,17 @@ function handleSubmit(event) {
   let city = document.querySelector("#city-input").value;
   search(city);
 }
+function searchLocation(position) {
+  let apiKey = "6feaf6a8d604af91166c8484867322e7";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&appid=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(displayTemperature);
+}
+function getCurrentLocation(event) {
+  event.preventDefault();
+  navigator.geolocation.getCurrentPosition(searchLocation);
+}
+let currentLocationButton = document.querySelector(".current-location-button");
+currentLocationButton.addEventListener("click", getCurrentLocation);
 
 search("Seville");
 let form = document
