@@ -42,6 +42,15 @@ function displayTemperature(response) {
   document.querySelector("#date").innerHTML = formatDate(
     response.data.dt * 1000
   );
+  document
+    .querySelector("#image")
+    .setAttribute(
+      "src",
+      `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+    );
+  document
+    .querySelector("#image")
+    .setAttribute("alt", response.data.weather[0].description);
 }
 let apiKey = "6feaf6a8d604af91166c8484867322e7";
 let city = "Duluth";
