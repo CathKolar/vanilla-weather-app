@@ -21,6 +21,7 @@ function formatDate(timestamp) {
   return `${day} <br/> ${hours}:${minutes}`;
 }
 function displayTemperature(response) {
+  celciusTemperature = Math.round(response.data.main.temp);
   document.querySelector("#high-temp-today").innerHTML = Math.round(
     response.data.main.temp_max
   );
@@ -30,8 +31,8 @@ function displayTemperature(response) {
   document.querySelector(
     "#city"
   ).innerHTML = `${response.data.name}, ${response.data.sys.country}`;
-  document.querySelector(".current-temperature").innerHTML = Math.round(
-    response.data.main.temp
+  document.querySelector("#current-temperature").innerHTML = Math.round(
+    celciusTemperature
   );
   document.querySelector("#humidity").innerHTML = response.data.main.humidity;
   document.querySelector("#wind").innerHTML = Math.round(
@@ -72,10 +73,40 @@ function getCurrentLocation(event) {
   event.preventDefault();
   navigator.geolocation.getCurrentPosition(searchLocation);
 }
+function displayFarenheitTemperature(event) {
+  event.preventDefault();
+  celciusButton.classList.remove("active");
+  farenheitButton.classList.add("active");
+  let farenheitTemperature = (celciusTemperature * 9) / 5 + 32;
+  document.querySelector("#current-temperature").innerHTML = Math.round(
+    farenheitTemperature
+  );
+  document.querySelector("#temp-symbol").innerHTML = "F";
+}
+function displayCelciusTemperature(event) {
+  event.preventDefault();
+  celciusButton.classList.add("active");
+  farenheitButton.classList.remove("active");
+  document.querySelector("#current-temperature").innerHTML = Math.round(
+    celciusTemperature
+  );
+
+  document.querySelector("#temp-symbol").innerHTML = "C";
+}
+
+let celciusTemperature = null;
+
+let farenheitButton = document.querySelector("#button-f");
+farenheitButton.addEventListener("click", displayFarenheitTemperature);
+
+let celciusButton = document.querySelector("#button-c");
+celciusButton.addEventListener("click", displayCelciusTemperature);
+
 let currentLocationButton = document.querySelector(".current-location-button");
 currentLocationButton.addEventListener("click", getCurrentLocation);
 
 search("Seville");
+
 let form = document
   .querySelector("#search-city")
   .addEventListener("submit", handleSubmit);
