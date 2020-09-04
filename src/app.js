@@ -32,6 +32,8 @@ function displayForcast(response) {
   let forcast = null;
   for (let index = 1; index < 6; index++) {
     forcast = response.data.daily[index];
+    forcastCelciusHigh = Math.round(response.data.daily[index].temp.max);
+    forcastCelciusLow = Math.round(response.data.daily[index].temp.min);
     forcastElement.innerHTML += ` <div class="col-2.4 day">
    <h5> ${formatDay(forcast.dt * 1000)}</h5>
        <div >
@@ -39,19 +41,24 @@ function displayForcast(response) {
           response.data.daily[0].weather[0].icon
         }@2x.png"> </img>
        </div>
-       <div class="temp-high-low-future"><strong>${Math.round(
-         response.data.daily[index].temp.max
-       )}º</strong> | ${Math.round(response.data.daily[index].temp.min)}º</div>
+       <div class="temp-high-low-future"><strong><span id="forcast-high">${Math.round(
+         forcastCelciusHigh
+       )}</span>º</strong> | <span id= "forcast-low">${Math.round(
+      forcastCelciusLow
+    )}</span>º</div>
     </div>`;
   }
 }
 function displayTemperature(response) {
   celciusTemperature = Math.round(response.data.main.temp);
+  todayCelciusHigh = Math.round(response.data.main.temp_max);
+  todayCelciusLow = Math.round(response.data.main.temp_min);
   document.querySelector("#high-temp-today").innerHTML = Math.round(
-    response.data.main.temp_max
+    todayCelciusHigh
   );
+
   document.querySelector("#low-temp-today").innerHTML = Math.round(
-    response.data.main.temp_min
+    todayCelciusLow
   );
   document.querySelector(
     "#city"
@@ -111,11 +118,40 @@ function displayFarenheitTemperature(event) {
   event.preventDefault();
   celciusButton.classList.remove("active");
   farenheitButton.classList.add("active");
-  let farenheitTemperature = (celciusTemperature * 9) / 5 + 32;
+  let farenheitTemperature = Math.round(celciusTemperature * 9) / 5 + 32;
+  let farenheitTemperatureHigh = Math.round(todayCelciusHigh * 9) / 5 + 32;
+  let farenheitTemperatureLow = Math.round(todayCelciusLow * 9) / 5 + 32;
+
   document.querySelector("#current-temperature").innerHTML = Math.round(
     farenheitTemperature
   );
   document.querySelector("#temp-symbol").innerHTML = "F";
+  document.querySelector("#high-temp-today").innerHTML = Math.round(
+    farenheitTemperatureHigh
+  );
+  document.querySelector("#low-temp-today").innerHTML = Math.round(
+    farenheitTemperatureLow
+  );
+
+  let forcastHigh = document.querySelectorAll("#forcast-high");
+  let forcastLow = document.querySelectorAll("#forcast-low");
+  forcastHigh.forEach(function (max) {
+    let farenheitForcastHigh = max.innerHTML;
+    max.innerHTML = `${Math.round(forcastCelciusHigh * 9) / 5 + 32}`;
+    document.querySelector("#forcast-high").innerHTML = Math.round(
+      farenheitForcastHigh
+    );
+    document.querySelector("#forcast-high").innerHTML = Math.round(
+      farenheitForcastHigh
+    );
+  });
+  forcastLow.forEach(function (min) {
+    let farenheitForcastLow = min.innerHTML;
+    min.innerHTML = `${Math.round(forcastCelciusLow * 9) / 5 + 32}`;
+    document.querySelector("#forcast-low").innerHTML = Math.round(
+      farenheitForcastLow
+    );
+  });
 }
 function displayCelciusTemperature(event) {
   event.preventDefault();
@@ -124,11 +160,37 @@ function displayCelciusTemperature(event) {
   document.querySelector("#current-temperature").innerHTML = Math.round(
     celciusTemperature
   );
+  document.querySelector("#high-temp-today").innerHTML = Math.round(
+    todayCelciusHigh
+  );
+  document.querySelector("#low-temp-today").innerHTML = Math.round(
+    todayCelciusLow
+  );
 
   document.querySelector("#temp-symbol").innerHTML = "C";
+  let forcastHigh = document.querySelectorAll("#forcast-high");
+  let forcastLow = document.querySelectorAll("#forcast-low");
+  forcastHigh.forEach(function (max) {
+    let celciusForcastHigh = max.innerHTML;
+    max.innerHTML = `${Math.round(forcastCelciusHigh)}`;
+    document.querySelector("#forcast-high").innerHTML = Math.round(
+      celciusForcastHigh
+    );
+  });
+  forcastLow.forEach(function (min) {
+    let celciusForcastLow = min.innerHTML;
+    min.innerHTML = `${Math.round(forcastCelciusLow)}`;
+    document.querySelector("#forcast-low").innerHTML = Math.round(
+      celciusForcastLow
+    );
+  });
 }
 
 let celciusTemperature = null;
+let todayCelciusHigh = null;
+let todayCelciusLow = null;
+let forcastCelciusHigh = null;
+let forcastCelciusLow = null;
 
 let farenheitButton = document.querySelector("#button-f");
 farenheitButton.addEventListener("click", displayFarenheitTemperature);
