@@ -39,9 +39,9 @@ function displayForcast(response) {
           response.data.daily[0].weather[0].icon
         }@2x.png"> </img>
        </div>
-       <div class="temp-high-low-future">${Math.round(
+       <div class="temp-high-low-future"><strong>${Math.round(
          response.data.daily[index].temp.max
-       )}º | ${Math.round(response.data.daily[index].temp.min)}º</div>
+       )}º</strong> | ${Math.round(response.data.daily[index].temp.min)}º</div>
     </div>`;
   }
 }
