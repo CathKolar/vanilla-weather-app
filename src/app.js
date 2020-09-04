@@ -20,6 +20,31 @@ function formatDate(timestamp) {
   let day = days[date.getDay()];
   return `${day} <br/> ${hours}:${minutes}`;
 }
+function formatDay(timestamp) {
+  let dt = new Date(timestamp);
+  let days = ["Sun", "Mon", "Tues", "Wed", "Thurs", "Fri", "Sat"];
+  let day = days[dt.getDay()];
+  return `${day}`;
+}
+function displayForcast(response) {
+  let forcastElement = document.querySelector("#forcast");
+  forcastElement.innerHTML = null;
+  let forcast = null;
+  for (let index = 1; index < 6; index++) {
+    forcast = response.data.daily[index];
+    forcastElement.innerHTML += ` <div class="col-2.4 day">
+   <h5> ${formatDay(forcast.dt * 1000)}</h5>
+       <div >
+        <img  class="weather-icon-future" src= "http://openweathermap.org/img/wn/${
+          response.data.daily[0].weather[0].icon
+        }@2x.png"> </img>
+       </div>
+       <div class="temp-high-low-future">${Math.round(
+         response.data.daily[index].temp.max
+       )}º | ${Math.round(response.data.daily[index].temp.min)}º</div>
+    </div>`;
+  }
+}
 function displayTemperature(response) {
   celciusTemperature = Math.round(response.data.main.temp);
   document.querySelector("#high-temp-today").innerHTML = Math.round(
@@ -52,7 +77,16 @@ function displayTemperature(response) {
   document
     .querySelector("#image")
     .setAttribute("alt", response.data.weather[0].description);
+
+  let latitude = response.data.coord.lat;
+  let longitude = response.data.coord.lon;
+  let apiKey = "6feaf6a8d604af91166c8484867322e7";
+  let units = "metric";
+
+  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&units=${units}&exclude={part}&appid=${apiKey}`;
+  axios.get(apiUrl).then(displayForcast);
 }
+
 function search(city) {
   let apiKey = "6feaf6a8d604af91166c8484867322e7";
 
