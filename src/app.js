@@ -50,6 +50,8 @@ function displayForcast(response) {
   }
 }
 function displayTemperature(response) {
+  celciusButton.classList.add("active");
+  farenheitButton.classList.remove("active");
   celciusTemperature = Math.round(response.data.main.temp);
   todayCelciusHigh = Math.round(response.data.main.temp_max);
   todayCelciusLow = Math.round(response.data.main.temp_min);
@@ -63,9 +65,10 @@ function displayTemperature(response) {
   document.querySelector(
     "#city"
   ).innerHTML = `${response.data.name}, ${response.data.sys.country}`;
-  document.querySelector("#current-temperature").innerHTML = Math.round(
+  document.querySelector("#current-temperature").innerHTML = `${Math.round(
     celciusTemperature
-  );
+  )}`;
+  document.querySelector("#temp-symbol").innerHTML = "ºC";
   document.querySelector("#humidity").innerHTML = response.data.main.humidity;
   document.querySelector("#wind").innerHTML = Math.round(
     response.data.wind.speed
@@ -125,7 +128,7 @@ function displayFarenheitTemperature(event) {
   document.querySelector("#current-temperature").innerHTML = Math.round(
     farenheitTemperature
   );
-  document.querySelector("#temp-symbol").innerHTML = "F";
+  document.querySelector("#temp-symbol").innerHTML = "ºF";
   document.querySelector("#high-temp-today").innerHTML = Math.round(
     farenheitTemperatureHigh
   );
@@ -137,20 +140,14 @@ function displayFarenheitTemperature(event) {
   let forcastLow = document.querySelectorAll("#forcast-low");
   forcastHigh.forEach(function (max) {
     let farenheitForcastHigh = max.innerHTML;
-    max.innerHTML = `${Math.round(forcastCelciusHigh * 9) / 5 + 32}`;
-    document.querySelector("#forcast-high").innerHTML = Math.round(
-      farenheitForcastHigh
-    );
-    document.querySelector("#forcast-high").innerHTML = Math.round(
-      farenheitForcastHigh
-    );
+    max.innerHTML = `${Math.round((farenheitForcastHigh * 9) / 5 + 32)}`;
   });
   forcastLow.forEach(function (min) {
     let farenheitForcastLow = min.innerHTML;
-    min.innerHTML = `${Math.round(forcastCelciusLow * 9) / 5 + 32}`;
-    document.querySelector("#forcast-low").innerHTML = Math.round(
-      farenheitForcastLow
-    );
+    min.innerHTML = `${Math.round((farenheitForcastLow * 9) / 5 + 32)}`;
+
+    farenheitButton.removeEventListener("click", displayFarenheitTemperature);
+    celciusButton.addEventListener("click", displayCelciusTemperature);
   });
 }
 function displayCelciusTemperature(event) {
@@ -167,23 +164,19 @@ function displayCelciusTemperature(event) {
     todayCelciusLow
   );
 
-  document.querySelector("#temp-symbol").innerHTML = "C";
+  document.querySelector("#temp-symbol").innerHTML = "ºC";
   let forcastHigh = document.querySelectorAll("#forcast-high");
   let forcastLow = document.querySelectorAll("#forcast-low");
   forcastHigh.forEach(function (max) {
     let celciusForcastHigh = max.innerHTML;
-    max.innerHTML = `${Math.round(forcastCelciusHigh)}`;
-    document.querySelector("#forcast-high").innerHTML = Math.round(
-      celciusForcastHigh
-    );
+    max.innerHTML = `${Math.round(((celciusForcastHigh - 32) * 5) / 9)}`;
   });
   forcastLow.forEach(function (min) {
     let celciusForcastLow = min.innerHTML;
-    min.innerHTML = `${Math.round(forcastCelciusLow)}`;
-    document.querySelector("#forcast-low").innerHTML = Math.round(
-      celciusForcastLow
-    );
+    min.innerHTML = `${Math.round(((celciusForcastLow - 32) * 5) / 9)}`;
   });
+  farenheitButton.addEventListener("click", displayFarenheitTemperature);
+  celciusButton.removeEventListener("click", displayCelciusTemperature);
 }
 
 let celciusTemperature = null;
