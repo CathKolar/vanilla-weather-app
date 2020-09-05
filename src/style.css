@@ -8,21 +8,10 @@ div.card.capsule {
   margin: 0 auto;
   min-width: 540px;
   max-width: 700px;
-  background-image: linear-gradient(
-      to bottom,
-      #d5dee7 0%,
-      #e8ebf2 50%,
-      #e2e7ed 100%
-    ),
-    linear-gradient(
-      to bottom,
-      rgba(0, 0, 0, 0.02) 50%,
-      rgba(255, 255, 255, 0.02) 61%,
-      rgba(0, 0, 0, 0.02) 73%
-    ),
-    linear-gradient(33deg, rgba(255, 255, 255, 0.2) 0%, rgba(0, 0, 0, 0.2) 100%);
+  background-image: linear-gradient(to top, #ffffff, #6dd5fa, #2980b9);
+
   background-blend-mode: normal, color-burn;
-  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
+  box-shadow: 5px 5px 10px rgba(41, 128, 185, 0.3);
 }
 h1 {
   line-height: 27px;
@@ -31,6 +20,7 @@ h1 {
 
 h2,
 h3 {
+  color: rgb(34, 38, 42);
   display: inline-block;
 }
 h2 {
@@ -47,7 +37,8 @@ h3 {
 }
 
 h5 {
-  color: rgb(135, 135, 135);
+  color: rgb(34, 38, 42);
+
   font-size: 20px;
   font-weight: 400;
   text-align: center;
@@ -56,6 +47,7 @@ h5 {
   padding-top: 7px;
 }
 p {
+  color: rgb(34, 38, 42);
   margin-top: 85px;
 }
 small {
@@ -70,17 +62,17 @@ small {
   max-width: 600px;
   margin: 30px auto;
 }
-
+.search.button{box-shadow: 5px 5px 10px rgba(41, 128, 185, 0.3);}
 .search-city-current-location {
   float: right;
 }
 .current-location-button {
   background: transparent;
-  color: #027bfe;
+  color:rgb(34, 38, 42);
   border-style: none;
 }
 .fa-location-arrow {
-  color: #027bfe;
+  color:rgb(34, 38, 42);
 }
 .current-conditions {
   margin: 60px 5px;
@@ -108,18 +100,11 @@ small {
   font-weight: 400;
 }
 .week-ahead {
-  background: linear-gradient(to bottom, #d5dee7 0%, #e8ebf2 50%, #e2e7ed 100%),
-    linear-gradient(
-      to bottom,
-      rgba(0, 0, 0, 0.02) 50%,
-      rgba(255, 255, 255, 0.02) 61%,
-      rgba(0, 0, 0, 0.02) 73%
-    ),
-    linear-gradient(33deg, rgba(255, 255, 255, 0.2) 0%, rgba(0, 0, 0, 0.2) 100%);
+  background: linear-gradient(to top, #ffffff, #6dd5fa, #2980b9);
   background-blend-mode: normal, color-burn;
   text-align: center;
 
-  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
+  box-shadow: 5px 5px 10px rgba(41, 128, 185, 0.3);
 }
 .weather-forcast {
   display: inline-flex;
@@ -143,7 +128,7 @@ small {
 .btn-group {
   float: right;
   margin: 10px 20px;
-  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
+  box-shadow: 5px 5px 10px rgba(box-shadow: 5px 5px 10px rgba(41, 128, 185, 0.3);
 }
 .btn-group .active:hover {
   cursor: default;
