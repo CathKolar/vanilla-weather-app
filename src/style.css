@@ -8,7 +8,7 @@ div.card.capsule {
   margin: 0 auto;
   min-width: 540px;
   max-width: 700px;
-  background-image: linear-gradient(to top, #ffffff, #4dd1e2, #15a3b8);
+  background-image: linear-gradient(to top, #f2f2f1, #4dd1e2, #15a3b8);
 
   background-blend-mode: normal, color-burn;
   box-shadow: 5px 5px 10px rgba(21, 163, 184, 0.3);
@@ -64,8 +64,19 @@ small {
   border-radius: 22px;
   border: 0.5px solid rgba(21, 163, 184, 0.125);
 }
-.search.button {
-  box-shadow: 5px 5px 10px rgba(21, 163, 184, 0.3);
+.search-button,
+.city-input {
+  background-color: #cbf1f6;
+  border-color: #139bad;
+  border-radius: 3px;
+  box-shadow: 5px 5px 9px rgba(242, 242, 241, 0.3);
+  border: 0.8px solid rgba(21, 163, 184, 0.125);
+}
+.search-button {
+  transition: all 300ms ease;
+}
+.search-button:hover {
+  background-color: #dbfbff;
 }
 .search-city-current-location {
   float: right;
@@ -76,7 +87,7 @@ small {
 
   border-style: none;
   float: center;
-  transition: all 150ms ease;
+  transition: all 300ms ease;
 }
 .current-location-button:hover {
   color: rgb(34, 38, 42);
@@ -102,7 +113,7 @@ small {
   font-weight: 400;
 }
 .week-ahead {
-  background: linear-gradient(to top, #ffffff, #4dd1e2, #15a3b8);
+  background: linear-gradient(to top, #f2f2f1, #4dd1e2, #15a3b8);
   background-blend-mode: normal, color-burn;
   text-align: center;
 
@@ -131,8 +142,9 @@ small {
   float: right;
   margin: 10px 20px;
   box-shadow: 5px 5px 10px rgba(21, 163, 184, 0.3);
-  transition: all 300ms ease;
+  border-radius: 3px;
 }
+
 .btn-group .active:hover {
   cursor: default;
 }
