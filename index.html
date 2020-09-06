@@ -15,10 +15,6 @@
       rel="stylesheet"
     />
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-    <script
-      src="https://kit.fontawesome.com/278cc29812.js"
-      crossorigin="anonymous"
-    ></script>
     <link rel="stylesheet" href="src/style.css" class="css" />
   </head>
   <body>
@@ -27,6 +23,10 @@
         <div class="weather-app">
           <div class="card capsule">
             <div class="card-body">
+              <h3>
+                <span class="last-update">Last updated:</span>
+                <div id="date"></div>
+              </h3>
               <div class="search-city-current-location">
                 <form id="search-city">
                   <input
@@ -45,7 +45,7 @@
                   <br />
                 </form>
                 <button class="current-location-button">
-                  <i class="fas fa-location-arrow"></i> Current Location
+                  ➢ Current Location
                 </button>
               </div>
               <br />
@@ -67,10 +67,6 @@
                     ><span id="temp-symbol"></span>
                     <div id="city"></div>
                   </h2>
-                  <h3>
-                    <span class="last-update">Last updated:</span>
-                    <div id="date"></div>
-                  </h3>
                 </div>
                 <div class="col-4 weather-extras">
                   <p>
@@ -100,7 +96,7 @@
                 </button>
                 <button
                   type="button"
-                  class="btn btn-outline-info button-fahrenheit"
+                  class="btn btn-outline-info button-fahrenheit diabled"
                   id="button-f"
                 >
                   ºF

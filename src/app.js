@@ -18,7 +18,7 @@ function formatDate(timestamp) {
     "Saturday",
   ];
   let day = days[date.getDay()];
-  return `${day} <br/> ${hours}:${minutes}`;
+  return `${day} ${hours}:${minutes}`;
 }
 function formatDay(timestamp) {
   let dt = new Date(timestamp);
@@ -48,6 +48,7 @@ function displayForcast(response) {
     )}</span>º</div>
     </div>`;
   }
+  celciusButton.removeEventListener("click", displayCelciusTemperature);
 }
 function displayTemperature(response) {
   celciusButton.classList.add("active");
