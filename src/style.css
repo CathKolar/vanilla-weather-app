@@ -60,6 +60,10 @@ small {
   max-width: 600px;
   margin: 30px auto;
 }
+.card {
+  border-radius: 22px;
+  border: 0.5px solid rgba(21, 163, 184, 0.125);
+}
 .search.button {
   box-shadow: 5px 5px 10px rgba(21, 163, 184, 0.3);
 }
