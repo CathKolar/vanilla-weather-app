@@ -6,7 +6,7 @@ body {
 div.card.capsule {
   color: #f2f2f1;
   margin: 0 auto;
-  min-width: 540px;
+  min-width: 600px;
   max-width: 700px;
   background-image: linear-gradient(to top, #f2f2f1, #4dd1e2, #15a3b8);
 
